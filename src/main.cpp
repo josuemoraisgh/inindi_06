@@ -1,5 +1,7 @@
-#include <inindThread.h>
+#include <Arduino.h>
 #include <math.h>
+#define NUMTHREADS 1 //Deve-se sempre declarar o NUMTHREADS antes de "inindThread.h"
+#include "inindThread.h"
 
 #define pinANALOG A5 // Configura o pino de leitura
 #define Fs 100.0     // Sampling frequency = 100hz
@@ -21,7 +23,7 @@ void setup() // Codigo de configuração
 {
   Serial.begin(115200);
   pinMode(pinANALOG, INPUT);
-  threadSetup(analogReadFunc, Ts, NULL); // parametros:funcão,intervalo,funcão,intervalo,...,NULL
+  threadSetup(analogReadFunc, Ts); // parametros:funcão,intervalo,funcão,intervalo,...,
 }
 
 void loop() {}
